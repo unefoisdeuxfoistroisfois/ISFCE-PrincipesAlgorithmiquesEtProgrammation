@@ -5,10 +5,10 @@ public class MinMaxElemV
 		int	i;
 		int	res;
 
-		res = 1;
+		res = v[0];
 		if(max)
 		{
-			i = 0;
+			i = 1;
 			while(i < v.length)
 			{
 				if(v[i] > res)
@@ -20,7 +20,7 @@ public class MinMaxElemV
 		}
 		else
 		{
-			i = 0;
+			i = 1;
 			while(i < v.length)
 			{
 				if(v[i] < res)
@@ -42,7 +42,7 @@ public class MinMaxElemV
 
 		tab = new int[] {1,0,3,123,5};
 
-		res = minMaxElemV(tab, true );
+		res = minMaxElemV(tab, false );
 
 		System.out.println(res);
 	}

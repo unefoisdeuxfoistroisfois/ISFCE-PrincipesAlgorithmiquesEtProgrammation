@@ -6,8 +6,8 @@ public class MaxElemV{
 		int	res;
 		int	temp;
 
-		i = 0;
-		res = 0;
+		i = 1;
+		res = v[0];
 		while(i < v.length)
 		{
 			if(v[i] > res)
