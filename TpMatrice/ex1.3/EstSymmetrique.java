@@ -8,12 +8,15 @@ public class EstSymetrique{
 		Le but est de parcourir uniquement la partie inférieure gauche de la matrice.
 		*/
 		
-		// Vérifier si la matrice est carrée ou vide
-		i = 0;
-		if(m.length == 0|| m.length != m[i].length){
-			System.out.println("la matrice n'est pas carré");
+		//la matrice est vide ?
+		if (m == null || m.length == 0) {
+           		 return false;
+        	}
+
+		// la matrice est carrée ?
+		if (m.length != m[0].length) {
 			return false;
-		}
+        	}
 
 		i = 1;
 		while(i < m.length){ //lignes
