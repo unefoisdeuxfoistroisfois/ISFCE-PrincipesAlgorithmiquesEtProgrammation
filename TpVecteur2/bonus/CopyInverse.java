@@ -34,4 +34,4 @@ public class CopyInverse{
 		res = copyInverse(mot);
 		afficheV(res);
 	}
-
+}
