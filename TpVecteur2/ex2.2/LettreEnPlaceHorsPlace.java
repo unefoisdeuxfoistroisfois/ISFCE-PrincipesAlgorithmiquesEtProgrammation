@@ -7,19 +7,40 @@ public class LettreEnPlaceHorsPLace
 		int	horsPlace;
 
 		i = 0;
-		j = 0;
 		place = 0;
 		horsPlace = 0;
-		while(i < v1.length && j <v2.length )
+
+		boolean[] usedV1;
+		boolean[] usedV2;
+
+		usedV1 = new boolean[v1.length];
+		usedV2 = new boolean[v1.length]; 
+		while(i < v1.length)
 		{
-			if(v1[i] == v2[j] || v1[i] == v2[j] + 32 || v1[i] == v2[j] - 32) //32 difference entre min et maj dans la table ascii
+			if(v1[i] == v2[i] || v1[i] == v2[i] + 32 || v1[i] == v2[i] - 32) //32 difference entre min et maj dans la table ascii
 			{
 				place++;
-			}else{// pas fin car je dois faire le plus dur qui est de voir si la lettre a été utilise plusieurs fois je ferais sa plus tard mdr ciao
-				horsPlace++;
+				usedV1[i] = true;
+				usedV2[i] = true;
+				
 			}
 			i++;
-			j++;
+		}
+
+		i = 0;
+		while(i < v1.length){
+			if(usedV2[i] != true){
+				j = 0;
+				while(j < v1.length){
+					if(usedV1[j] != true && v1[j] == v2[i] || v1[j] == v2[i] + 32 || v1[j] == v2[i] - 32){
+						horsPlace++;
+						usedV1[j] = true;
+						break;
+					}
+					j++;
+				}
+			}
+			i++;
 		}
 		return new int[] {place, horsPlace};
 	}
