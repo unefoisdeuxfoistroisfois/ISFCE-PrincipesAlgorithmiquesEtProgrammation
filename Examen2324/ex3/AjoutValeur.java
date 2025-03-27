@@ -11,6 +11,24 @@ public class AjoutValeur {
 		boolean ok;
 		
 		ok = true;
+		//VERFIICATION SI DANS LA LIGNE IL Y'A LE NOMBRE
+		i = 0;
+		while(i < 9){
+			if(jeu[x][i] == chiffre){
+				return false;
+			}
+			i++;
+		}
+
+		//VERIFICATION COLONNE
+		i = 0;
+		while(i < 9){
+			if(jeu[i][y] == chiffre){
+				return false;
+			}
+			i++;
+		}
+
 		i = 0;
 		//VERIFICAITON SI ON PEUT METTRE NOTRE NOMBRE DANS LE BLOCK
 		while(i < 3 && ok == true) {
@@ -48,7 +66,7 @@ public class AjoutValeur {
 			{0, 0, 0, 4, 1, 9, 0, 0, 5},
 			{0, 0, 0, 0, 8, 0, 0, 7, 9}
 		};
-		nombre = 6;
+		nombre = 3;
 		//on va essayer de voir si nombre peut aller a la position x y.
 		res = ajoutValeur(mat, nombre, 1,7);
 		System.out.println(nombre+" peut il etre place á cette positon "+res);
