@@ -5,8 +5,9 @@ public class Convolution2{
 		int	j;
 		int[][] newMat;
 		int	max;
-		int	x;
-		int	y;
+		int	hautDroite;
+		int	basGauche;
+		int	basDroite;
 
 		newMat = new int[m.length / 2][m.length / 2];
 	
@@ -15,17 +16,18 @@ public class Convolution2{
 			j = 0;
 			while(j < newMat[0].length){
 				max = m[i * 2][j * 2];
+				hautDroite = m[i * 2][j * 2 + 1];
+				basGauche = m[i * 2 + 1][j * 2];
+				basDroite = m[i * 2 + 1][j * 2 + 1];
 
-				x = 0;
-				while(x < 2){
-					y = 0;
-					while(y < 2){
-						if(m[i * 2 + x][j * 2 + y] > max){
-							max = m[i * 2 + x][j * 2 + y];
-						}
-						y++;
-					}
-					x++;
+				if(hautDroite > max){
+					max = hautDroite;
+				}
+				if(basGauche > max){
+					max = basGauche;
+				}
+				if(basDroite > max){
+					max = basDroite;
 				}
 
 				newMat[i][j] = max;
